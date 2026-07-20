@@ -1,30 +1,60 @@
 #pragma once
-// Every physical wire, in one place. Change a wire? Change it
-// here — nowhere else in the project should mention a raw GPIO
-// number. Chosen to avoid strapping pins (0,3,45,46), native-USB
-// pins (19,20), and the pins reserved by this board's octal PSRAM.
 
-// ----- I2C bus (ADXL345 accelerometer) -----
-#define I2C_SDA_PIN        8
-#define I2C_SCL_PIN        9
+#include <cstdint>
 
-// ----- OneWire bus (DS18B20 temperature) -----
-#define ONE_WIRE_PIN       4
+/*
+===============================================================================
+ESP32-S3 Motor Health Monitoring System
+-------------------------------------------------------------------------------
+File        : Pins.h
+Description : Central GPIO configuration for the entire project.
 
-// ----- Analog input (ACS712 current sensor), must be an ADC1 pin -----
-#define ACS712_PIN         1     // ADC1_CH0
+Author  : Nayeem
+Version : 1.0
+===============================================================================
+*/
 
-// ----- L298N motor driver -----
-#define MOTOR_IN1_PIN      5
-#define MOTOR_IN2_PIN      6
-#define MOTOR_ENA_PIN      7     // PWM speed control
+namespace Pins
+{
+    //=========================================================================
+    // ADXL345 Accelerometer (I2C)
+    //=========================================================================
+    constexpr uint8_t I2C_SDA = 8;
+    constexpr uint8_t I2C_SCL = 9;
 
-// ----- JGA25-370 encoder (Yellow=A, Green=B, Blue=VCC, Black=GND) -----
-#define ENCODER_A_PIN      15
-#define ENCODER_B_PIN      16
+    //=========================================================================
+    // DS18B20 Temperature Sensor (OneWire)
+    //=========================================================================
+    constexpr uint8_t ONE_WIRE = 4;
 
-// ----- SD card module (SPI) -----
-#define SD_CS_PIN          10
-#define SD_SCK_PIN         12
-#define SD_MISO_PIN        13
-#define SD_MOSI_PIN        11
+    //=========================================================================
+    // ACS712 Current Sensor
+    // NOTE:
+    // Sensor VCC -> ESP32 5V (VIN)
+    // Signal OUT -> GPIO1 (ADC1)
+    //=========================================================================
+    constexpr uint8_t ACS712 = 1;
+
+    //=========================================================================
+    // L298N Motor Driver
+    //=========================================================================
+    constexpr uint8_t MOTOR_IN1 = 5;
+    constexpr uint8_t MOTOR_IN2 = 6;
+    constexpr uint8_t MOTOR_ENA = 7;
+
+    //=========================================================================
+    // JGA25-370 Quadrature Encoder
+    // Yellow -> GPIO2
+    // Green  -> GPIO3
+    //=========================================================================
+    constexpr uint8_t ENCODER_A = 2;
+    constexpr uint8_t ENCODER_B = 3;
+
+    //=========================================================================
+    // SD Card Module (SPI)
+    //=========================================================================
+    constexpr uint8_t SD_CS = 10;
+    constexpr uint8_t SD_MOSI = 11;
+    constexpr uint8_t SD_SCK = 12;
+    constexpr uint8_t SD_MISO = 13;
+}
