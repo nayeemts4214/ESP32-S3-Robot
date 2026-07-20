@@ -1,60 +1,45 @@
 #pragma once
 
-#include <cstdint>
-
 /*
 ===============================================================================
 ESP32-S3 Motor Health Monitoring System
--------------------------------------------------------------------------------
-File        : Pins.h
-Description : Central GPIO configuration for the entire project.
-
-Author  : Nayeem
-Version : 1.0
+GPIO Configuration
 ===============================================================================
 */
 
-namespace Pins
-{
-    //=========================================================================
-    // ADXL345 Accelerometer (I2C)
-    //=========================================================================
-    constexpr uint8_t I2C_SDA = 8;
-    constexpr uint8_t I2C_SCL = 9;
+//
+// ADXL345 (I2C)
+//
+#define I2C_SDA_PIN 8
+#define I2C_SCL_PIN 9
 
-    //=========================================================================
-    // DS18B20 Temperature Sensor (OneWire)
-    //=========================================================================
-    constexpr uint8_t ONE_WIRE = 4;
+//
+// DS18B20
+//
+#define ONE_WIRE_PIN 4
 
-    //=========================================================================
-    // ACS712 Current Sensor
-    // NOTE:
-    // Sensor VCC -> ESP32 5V (VIN)
-    // Signal OUT -> GPIO1 (ADC1)
-    //=========================================================================
-    constexpr uint8_t ACS712 = 1;
+//
+// ACS712
+//
+#define ACS712_PIN 1
 
-    //=========================================================================
-    // L298N Motor Driver
-    //=========================================================================
-    constexpr uint8_t MOTOR_IN1 = 5;
-    constexpr uint8_t MOTOR_IN2 = 6;
-    constexpr uint8_t MOTOR_ENA = 7;
+//
+// L298N
+//
+#define MOTOR_IN1_PIN 5
+#define MOTOR_IN2_PIN 6
+#define MOTOR_ENA_PIN 7
 
-    //=========================================================================
-    // JGA25-370 Quadrature Encoder
-    // Yellow -> GPIO2
-    // Green  -> GPIO3
-    //=========================================================================
-    constexpr uint8_t ENCODER_A = 2;
-    constexpr uint8_t ENCODER_B = 3;
+//
+// Encoder
+//
+#define ENCODER_A_PIN 2
+#define ENCODER_B_PIN 3
 
-    //=========================================================================
-    // SD Card Module (SPI)
-    //=========================================================================
-    constexpr uint8_t SD_CS = 10;
-    constexpr uint8_t SD_MOSI = 11;
-    constexpr uint8_t SD_SCK = 12;
-    constexpr uint8_t SD_MISO = 13;
-}
+//
+// SD Card
+//
+#define SD_CS_PIN 10
+#define SD_MOSI_PIN 11
+#define SD_SCK_PIN 12
+#define SD_MISO_PIN 13
