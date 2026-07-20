@@ -1,6 +1,14 @@
 #include "HealthMonitor.h"
 #include "config.h"
 
+#ifndef SAFE_CURRENT_LIMIT_A
+#error SAFE_CURRENT_LIMIT_A is NOT defined
+#endif
+
+#ifndef SAFE_TEMP_LIMIT_C
+#error SAFE_TEMP_LIMIT_C is NOT defined
+#endif
+
 void HealthMonitor::update(const MotorData &data)
 {
     fault = false;
